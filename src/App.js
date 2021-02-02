@@ -8,6 +8,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={List} />
         <Route path="/edit/:id" exact component={List} />
+        <Route path="/delete/:id" exact component={List} />
       </Switch>
     </Router>
   );

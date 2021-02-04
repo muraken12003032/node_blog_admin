@@ -30,8 +30,8 @@ class List extends Component {
         <tr>
           <td>{cur.title}</td>
           <td>{cur.content}</td>
-          <td><Button variant="secondary">編集</Button></td>
-          <td><Button variant="danger">削除</Button></td>
+          <td><Button variant="secondary" onClick={(()=>{this.props.history.push('/edit/' + cur.id, {blog: cur})})}>編集</Button></td>
+          <td><Button variant="danger" onClick={(()=>{this.props.history.push('/delete/' + cur.id)})}>削除</Button></td>
           <td><Button variant="primary">公開</Button></td>
         </tr>
       )

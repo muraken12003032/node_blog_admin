@@ -25,9 +25,10 @@ class List extends Component {
   }
 
   blog_list() {
-    return this.state.blogs.map((cur)=>{
+    return this.state.blogs.map((cur,index)=>{
       return(
-        <tr>
+        //このkeyを入れないとwarningが出る
+        <tr key={index}>
           <td>{cur.title}</td>
           <td>{cur.content}</td>
           <td><Button variant="secondary" onClick={(()=>{this.props.history.push('/edit/' + cur.id, {blog: cur})})}>編集</Button></td>
@@ -47,7 +48,7 @@ class List extends Component {
          // if文: blogsの中身がない(length===0)の場合は
          this.state.blogs.length ? 
           // 読み込まれた後の動作
-          <Table striped borderd hover>
+          <Table striped hover>
             <thead>
               <td><b>件名</b></td>
               <td><b>本文</b></td>

@@ -13,7 +13,7 @@ class New extends Component {
     return(
       <div>
         <h1>新規記事作成</h1>
-        <BlogForm blog={this.state.blog}/><br />
+        <BlogForm blog={this.state.blog} type="new"/><br />
         <Button onClick={(()=>{this.props.history.push('/')})}>戻る</Button>
       </div>
     )

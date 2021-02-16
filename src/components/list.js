@@ -22,6 +22,16 @@ class List extends Component {
     })
   }
 
+  toggle_published_status(blog) {
+    //公開状態を反転
+    blog.is_published = !blog.is_published;
+    axios.put(url + '/' + blog.id, blog)
+      .catch(err=>{window.alert(err)});
+
+    //変更後、画面をリロード
+    this.props.history.push('/');
+  }
+
   blog_list() {
     return this.state.blogs.map((cur,index)=>{
       return(
@@ -34,8 +44,8 @@ class List extends Component {
           <td><Button variant="danger" onClick={(()=>{this.props.history.push('/delete/' + cur.id)})}>削除</Button></td>
           { 
             cur.is_published ? 
-              <td><Button variant="danger">非公開</Button></td> :
-              <td><Button variant="primary">公開</Button></td>
+              <td><Button variant="danger" onClick={(()=>{this.toggle_published_status(cur)})}>非公開</Button></td> :
+              <td><Button variant="primary" onClick={(()=>{this.toggle_published_status(cur)})}>公開</Button></td>
           }
         </tr>
       )

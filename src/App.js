@@ -6,6 +6,8 @@ import Edit from './components/edit.js';
 import Delete from './components/delete.js';
 import New from './components/new.js';
 import Sidebar from './components/sidebar.js';
+import Images from './components/images.js';
+
 const sidebar_style = {marginTop: 100};
 
 function App() {
@@ -22,6 +24,7 @@ function App() {
               <Route path="/edit/:id" exact component={Edit} />
               <Route path="/delete/:id" exact component={Delete} />
               <Route path="/new" exact component={New} />
+              <Route path="/images" exact component={Images} />
             </Switch>
           </div>
         </div>
